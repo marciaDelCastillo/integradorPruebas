@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('./partials/head')  %> 
+<body class="login">
+    <%- include('./partials/header') %> 
+    
+    <main class="cuerpo">
+        <h1>¡Iniciá Sesión!</h1>
+        
+        <form action="" method="POST">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Correo electrónico" required>
+                <span></span>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Contraseña" required>
+               <span></span>
+
+                <div class="conectado">
+                    <input type="checkbox" name="Conectado" value="Conectado" id="Conectado">
+                    <label for="Manteme">Manteneme conectado</label>
+              </div>
+
+        <a href="/usuarios/registro" class="recuperarpassword">¿Olvidaste tu contraseña?</a>
+        <button type="submit" class="boton">ingresá</button>
+    </form>
+
+        <a href="/usuarios/registro" class="creacuenta">¿No tenés cuenta? ¡Creá una ahora!</a>
+
+    </main>
+    <%- include('./partials/footer')  %> 
+    <%- include('./partials/scripts')  %> 
+    </body>
+</html>

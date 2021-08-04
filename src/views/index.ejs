@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("./partials/head") %>
+
+    <body class="home">
+        <%- include("./partials/header") %>
+            <main>
+                <div class="banner">
+                    <img class="banner-img" src="images/Tokyo.jpg" alt="">
+                    <img class="banner-desk" src="/images/Imagen de home v2.png" alt="">
+                    <div class="container-texto">
+                    </div>
+                    <div class="texto-encima">Disfrutá la experienca de ir a un cine o a tu bar preferido ¡Ahora desde
+                        la comodidad de tu casa!</div>
+                    <div class="texto-encima2">Podrás elegir entre nuestras diferentes BOXS. Cada una incluye una
+                        experienca emocionante.</div>
+                    <h3>Regalá experiencias. Regalá vida.</h3>
+
+                </div>
+                <section>
+                    <article class="cine-container">
+                        <div class="cine">
+                        </div>
+                        <a class="btn-cine" href="productos/cine">Cine</a>
+                    </article>
+
+                    <article class="bar-container">
+                        <div class="bar">
+                        </div>
+
+                        <a class="btn-bar" href="productos/bar">Bar</a>
+                    </article>
+                </section>
+            </main>
+            <%- include("./partials/footer") %>
+                <%- include("./partials/scripts") %>
+    </body>
+
+</html>

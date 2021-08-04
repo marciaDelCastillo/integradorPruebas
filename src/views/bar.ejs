@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <%- include("./partials/head") %>
+
+<body class="bar">
+
+        <%- include("./partials/header") %>
+
+
+    <main>
+        <div class="banner">
+            <img src="/images/primavera-en-japon-consejos.jpg" alt="">
+            <div class="background-letter">
+            </div>
+            <div class="texto-encima">
+                <p>Disfrutá de las mejores experiencias en
+                    coctelería. En nuestras Boxes encontrarás
+                    lo necesario para disfrutar la experiencia
+                    de estar en un bar en cualquier parte del
+                    mundo, pero en la comodidad de tu hogar.</p>
+                <h3>REGALÁ EXPERIENCIAS. REGALÁ VIDA</h3>
+            </div>
+        </div>
+
+        <section>
+            <% productosBar .forEach(producto=> { %>
+                <article class="product">
+                    <div>
+                        <a href="/productos/detalle/<%=producto.id%>"><img
+                                src="/images/<%= producto.image
+                                %> " alt=""></a>
+                    </div>
+                    <div class="product-info">
+                        <h3><%= producto.name %> </h3>
+                            <div class="product-details">
+                                <span class="product-price">$<%=
+                                        producto.price %>
+                                    </span>
+                                    <form action="#"
+                                        method="POST">
+                                        <span><button
+                                                class="btn-cart"
+                                                type="submit">Añadir
+                                                al
+                                                carrito</button>
+                                        </span>
+                                    </form>
+                                </div>
+                            </div>
+                        </article>
+                        <% }) %>
+        </section>
+
+    </main>
+
+    <%- include("./partials/footer") %>
+        <%- include("./partials/scripts") %>
+</body>
+
+</html>

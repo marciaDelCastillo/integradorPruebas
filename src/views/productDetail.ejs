@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("./partials/head")%>
+<body class="productDetail">
+    <%- include("./partials/header")%>
+    <main>
+    <div class="contenedor1">
+        <div class="caja1">
+            <img class="imagen" src="/images/<%= producto.image%>">
+        </div>
+        <div class="caja2">
+            <h1>BIG BOX - <%= producto.name%></h1>
+            <P class="precio">$<%= producto.price.toFixed(2)%></P>
+            <P class="cuotas">o 6 cuotas de $<%= (producto.price/6).toFixed(2)%></P>
+            <button>AGREGAR AL CARRITO</button><button><a href="/productos/modificar/<%=producto.id%>">MODIFICAR</a></button>
+        </div>
+    </div>
+    <div class="invisible">
+        <input id="cantidadProductos" value="<%= producto.productList.length %>" hidden>
+        <% for(let i=0;i<producto.productList.length;i++){ %>
+            <input id="item<%=i%>" value="<%= producto.productList[i] %>" hidden>          
+        <%}%>
+        <input id="descripcion" value= "<%=producto.description%>">
+    </div>
+        <section id="experiencia">
+            
+        </section>
+        <script type = "text/babel">
+        const Items = () =>{
+            const cantidadProductos = document.getElementById("cantidadProductos").value;
+            const items = [];
+            for(let i=0;i<cantidadProductos;i++){
+                let nombre= "item"+i;
+                items.push(<li> {document.getElementById(nombre).value} </li>);
+            };
+            return(items);
+        }
+        const Informacion = () =>{
+            const [senal, setsenal] = React.useState("descripcion");
+            const descripcion = document.getElementById("descripcion").value;
+            return(
+                <div>
+                    <div class="contenedor2">
+                        <div class="opciones">
+                            <a onClick={()=>setsenal("descripcion")} 
+                                class="exp"><h2 className={senal=="descripcion"?"boton1":"boton2"}   >Experiencia</h2></a>
+                        </div>
+                        <div class="opciones"> 
+                            <a onClick={()=>setsenal("contenido")} class="cont"><h2 className={senal=="descripcion"?"boton2":"boton1"}>Contenido de la caja</h2></a>
+                        </div>
+                    </div>
+                    <article class="informacion" className={senal=="descripcion"?"blanco":"azul"}>
+                        <p className={senal=="descripcion"?"enciendo":"apago"}>{descripcion}</p>
+                        <ul className={senal=="contenido"?"enciendo":"apago"}>
+                            <Items/> 
+                        </ul>
+                    </article>
+                </div>
+            );
+        };
+        ReactDOM.render(
+            <Informacion />, 
+            document.getElementById("experiencia"));
+        </script>
+    </main>
+    <%- include("./partials/footer")%>
+    <%- include("./partials/scripts")%>
+</body>
+</html>

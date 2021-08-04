@@ -1,0 +1,65 @@
+<body>
+    <!DOCTYPE html>
+    <html lang="es">
+
+
+        <%- include("./partials/head" ) %>
+
+            <body class="cine">
+
+                <%- include("./partials/header" ) %>
+
+                    <main>
+                        <div class="banner">
+                            <img src="/images/volver-futuro-banner.png" alt="">
+                            <div class="background-letter">
+                            </div>
+                            <div class="texto-encima">
+                                <p>Disfrutá de la experiencia cine. En nuestras
+                                    Boxs encontrarás todos los platos y bebidas
+                                    para que te sientas dentro de tu película
+                                    preferida. Viví experiencias, ahora desde la
+                                    comodidad de tu casa.</p>
+                                <h3>REGALÁ EXPERIENCIAS. REGALÁ VIDA</h3>
+                            </div>
+                        </div>
+
+                        <section>
+                            <% productosCine.forEach(producto=> { %>
+                                <article class="product">
+                                    <div>
+                                        <a href="/productos/detalle/<%=producto.id%>"><img
+                                                src="/images/<%= producto.image
+                                                %> " alt=""></a>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3><%= producto.name %> </h3>
+                                            <div class="product-details">
+                                                <span class="product-price">$<%=
+                                                        producto.price %>
+                                                    </span>
+                                                    <form action="#"
+                                                        method="POST">
+                                                        <span><button
+                                                                class="btn-cart"
+                                                                type="submit">Añadir
+                                                                al
+                                                                carrito</button>
+                                                        </span>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <% }) %>
+
+
+
+                                        </section>
+
+                                    </main>
+
+                                    <%- include("./partials/footer" ) %>
+                                        <%- include("./partials/scripts" ) %>
+                                        </body>
+
+                                    </html>
